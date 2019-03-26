@@ -14,7 +14,7 @@ v1.0 - First release
 */
 /**************************************************************************/
 
-#include "MQ135.h"
+#include "MQ135_new.h"
 
 /**************************************************************************/
 /*!
@@ -52,9 +52,8 @@ float MQ135::getCorrectionFactor(float t, float h) {
 /**************************************************************************/
 float MQ135::getResistance() {
   int val = analogRead(_pin);
-  return ((1023./(float)val) * 5. - 1.)*RLOAD;
+  return ((1023. / (float)val) - 1.) * RLOAD;
 }
-
 /**************************************************************************/
 /*!
 @brief  Get the resistance of the sensor, ie. the measurement value corrected
